@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
 
 import { navigation, siteConfig } from "@/lib/site";
@@ -20,7 +21,7 @@ export function Navigation() {
       }}
     >
       <nav className="nav-inner" aria-label="Primary navigation">
-        <a className="brand" href="#home" onClick={() => setIsOpen(false)}>{siteConfig.brand}</a>
+        <Link className="brand" href="/" onClick={() => setIsOpen(false)}>{siteConfig.brand}</Link>
         <div className="nav-links">
           {navigation.map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}
         </div>
