@@ -10,8 +10,8 @@ export function WorkSection() {
       <div className="section-heading"><p className="eyebrow">Selected frames & films</p><h2 id="work-title">SELECTED WORK</h2></div>
       <div className="category-grid">
         {workCategories.map((category) => (
-          <Link className={`category-card category-${category.number}`} href={`/work/${category.slug}`} key={category.slug}>
-            <div className="category-visual" aria-hidden="true"><Image src={collectionCovers[category.slug].kind === "image" ? collectionCovers[category.slug].src : collectionCovers[category.slug].poster!} alt="" fill sizes="(max-width: 760px) 100vw, 33vw" /><span>{category.number}</span><i /></div>
+          <Link className={`category-card category-${category.appearance} ${["automotive", "celebrities", "lifestyle"].includes(category.slug) ? "category-card-portrait" : ""}`} href={`/work/${category.slug}`} key={category.slug}>
+            <div className="category-visual" aria-hidden="true"><Image src={collectionCovers[category.slug].kind === "image" ? collectionCovers[category.slug].src : collectionCovers[category.slug].poster!} alt="" fill sizes={category.slug === "freelance-work" ? "(max-width: 1100px) 100vw, 50vw" : category.slug === "lifestyle" ? "(max-width: 760px) 100vw, 50vw" : "(max-width: 760px) 100vw, (max-width: 1100px) 50vw, 33vw"} /><span>{category.number}</span><i /></div>
             <div className="category-content">
               <p className="eyebrow">{category.number} / Collection</p>
               <h3>{category.title}</h3>

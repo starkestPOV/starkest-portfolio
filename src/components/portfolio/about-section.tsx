@@ -6,7 +6,7 @@ import Image from "next/image";
 import { siteConfig } from "@/lib/site";
 
 const skills = ["Video Editing", "Photography", "Color Grading", "Freelance Work"];
-const creativeFocus = ["Photography", "Sports Photography", "Sports Video", "Automotive / Lifestyle", "Freelance Creative Work", "Color Grading", "AI-Assisted Creative Workflows"];
+const creativeFocus = ["Photography", "Sports Photography", "Sports Video", "Automotive", "Celebrities", "Lifestyle", "Freelance Creative Work", "Color Grading", "AI-Assisted Creative Workflows"];
 const careerJourney = [
   { years: "2019 – 2020", company: "COLORHOUSE", role: "Graphic Designer / Video Editor", location: "Thrissur, Kerala", label: "Studio", description: "Worked in a professional studio handling photography and video editing. Edited photos and videos for client projects and studio productions, and assisted with shoots, lighting setups and post-production workflows." },
   { years: "2021 – 2022", company: "BANDIDOS PITSTOP", role: "Video Editor / Videographer", location: "Thrissur, Kerala", label: "Motorsports", description: "Worked with motorsport-focused content, shooting and editing promotional and branding videos for motorsport events and teams. Created social media content using video editing, color correction and audio sync." },

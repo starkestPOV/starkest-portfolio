@@ -1,8 +1,0 @@
-import Link from "next/link";
-
-import { CollectionGallery } from "@/components/portfolio/collection-gallery";
-import { lifestyleProjects, type WorkCategory } from "@/data/portfolio";
-
-export function LifestylePage({ category }: { category: WorkCategory }) {
-  return <main id="main-content" className="collection-page lifestyle-page"><Link href="/#work" className="back-link">← Back to selected work</Link><p className="eyebrow">{category.number} / Collection</p><h1>{category.title}</h1><p className="collection-intro">{category.description}</p><section className="collection-media-section" aria-labelledby="lifestyle-films"><h2 id="lifestyle-films">Lifestyle Films</h2><CollectionGallery media={lifestyleProjects.films} type="films" /></section><section className="collection-media-section" aria-labelledby="latest-automotive-story"><h2 id="latest-automotive-story">Latest Automotive Story</h2><CollectionGallery media={[lifestyleProjects.latestAutomotive]} type="visuals" variant="featured" /></section><section className="collection-media-section" aria-labelledby="latest-lifestyle-story"><h2 id="latest-lifestyle-story">Latest Lifestyle Story</h2><CollectionGallery media={[lifestyleProjects.latestLifestyle]} type="visuals" variant="featured" /></section><section className="collection-media-section" aria-labelledby="automotive-stories"><h2 id="automotive-stories">Automotive Stories</h2><CollectionGallery media={lifestyleProjects.automotiveStories} type="visuals" /></section><section className="collection-media-section" aria-labelledby="lifestyle-stories"><h2 id="lifestyle-stories">Lifestyle Stories</h2><CollectionGallery media={lifestyleProjects.lifestyleStories} type="visuals" /></section></main>;
-}

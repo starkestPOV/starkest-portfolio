@@ -57,6 +57,46 @@ button { color: inherit; font: inherit; }
 @media (max-width: 900px) { .collection-gallery-visuals { columns: 2; } }
 @media (max-width: 760px) { .collection-gallery-films { grid-template-columns: 1fr; }.collection-gallery-visuals { columns: 1; }.collection-gallery-visuals .collection-card { min-height: 0; }.collection-media-section { margin-top: 3.5rem; } }
 
+/* Portfolio presentation: scoped away from Street Photography and About. */
+.category-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.category-card { min-width: 0; }
+.category-visual { height: auto; min-height: 0; aspect-ratio: 4 / 5; flex-shrink: 0; }
+.category-card-portrait .category-visual img { object-fit: contain; }
+.category-03 .category-visual img { object-position: center top; }
+@media (min-width: 1101px) {
+  .category-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); background: transparent; border-color: transparent; }
+  .category-card { grid-column: span 2; box-shadow: 0 0 0 1px var(--border); }
+  .category-card:nth-child(4) { grid-column: 2 / span 2; }
+  .category-card:nth-child(5) { grid-column: 4 / span 2; }
+}
+.collection-page h1 { overflow-wrap: anywhere; }
+.collection-media-section + .collection-media-section { border-top: 1px solid var(--border); padding-top: clamp(2.5rem, 5vw, 4rem); }
+.collection-section-heading { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; column-gap: 2rem; row-gap: .75rem; margin-bottom: 1.5rem; }
+.collection-section-heading h2, .collection-section-heading .eyebrow { margin: 0; }
+.collection-section-heading h2[id] { scroll-margin-top: 6rem; }
+.collection-photo-sequence { display: grid; gap: clamp(1.25rem, 3vw, 3rem); }
+.collection-gallery-visuals { column-gap: clamp(.75rem, 1.5vw, 1.5rem); }
+.collection-gallery-visuals .collection-card { margin-bottom: clamp(.75rem, 1.5vw, 1.5rem); }
+.collection-gallery-visuals .collection-image-button img { object-fit: contain; }
+.collection-gallery-featured { width: 100%; margin-inline: auto; }
+.collection-gallery-featured .collection-card { min-height: 0; margin: 0; }
+/* Keep the 3:4 Lifestyle opener within 70% of the viewport height. */
+.collection-page-lifestyle .collection-gallery-featured { max-width: min(100%, 480px, 52.5svh); }
+.collection-gallery-editorial { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: clamp(1.25rem, 3vw, 3rem); columns: auto; }
+.collection-gallery-editorial .collection-card { margin: 0; }
+.collection-gallery-films { gap: clamp(1.25rem, 3vw, 3rem); background: transparent; }
+.film-card { min-width: 0; }
+.film-frame { position: relative; aspect-ratio: 16 / 9; background: var(--surface); border: 1px solid var(--border); }
+.film-frame video, .film-poster { display: block; width: 100%; height: 100%; position: absolute; inset: 0; }
+.film-frame video, .film-poster img { object-fit: contain; }
+.film-poster { border: 0; padding: 0; background: transparent; cursor: pointer; }
+.film-play { position: absolute; inset: 0; display: grid; width: 3.5rem; height: 3.5rem; margin: auto; place-items: center; border: 1px solid var(--foreground); border-radius: 50%; background: rgba(11,13,13,.6); }
+.film-caption { padding-top: 1rem; }
+.film-caption .eyebrow { display: block; margin-bottom: .5rem; }
+.film-caption h3 { margin: 0; font-size: clamp(1.15rem, 2vw, 1.65rem); letter-spacing: -.035em; }
+@media (min-width: 761px) and (max-width: 1100px) { .category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }.category-card:last-child:nth-child(odd) { grid-column: 1 / -1; } }
+@media (max-width: 760px) { .category-grid, .collection-gallery-editorial { grid-template-columns: minmax(0, 1fr); }.category-card { min-height: 0; }.collection-page { padding-inline: 1.25rem; }.collection-section-heading { align-items: start; flex-direction: column; }.film-play { width: 3rem; height: 3rem; } }
+
 /* About: the approved portrait introduction is retained above the editorial career timeline. */
 .about-section { display: block; }.about-intro-grid { display: grid; grid-template-columns: minmax(280px,.8fr) minmax(0,1fr); gap: clamp(3rem, 10vw, 12rem); align-items: center; }.career-journey, .creative-evolution { margin-top: clamp(5.5rem, 11vw, 10rem); }.career-heading h3, .creative-evolution h3 { margin: 0; font-size: clamp(2.2rem, 5vw, 5.4rem); font-weight: 750; letter-spacing: -.065em; line-height: .9; }.career-timeline { position: relative; margin: clamp(2.5rem, 5vw, 4.5rem) 0 0; padding: 0; list-style: none; }.career-timeline::before { position: absolute; left: clamp(6.3rem, 15vw, 13rem); top: .25rem; bottom: .25rem; width: 1px; background: rgba(242,240,233,.18); content: ""; }.career-entry { position: relative; display: grid; grid-template-columns: clamp(5rem, 13vw, 11rem) 2rem minmax(0, 1fr) auto; gap: clamp(.75rem, 2vw, 2rem); padding-bottom: clamp(2.75rem, 5vw, 4.5rem); }.career-entry:last-child { padding-bottom: 0; }.career-years, .career-label, .career-location { margin: 0; color: var(--muted); font-size: .65rem; font-weight: 700; letter-spacing: .12em; line-height: 1.5; text-transform: uppercase; }.career-years { padding-top: .1rem; }.career-marker { position: relative; z-index: 1; display: block; width: .65rem; height: .65rem; margin-top: .15rem; justify-self: center; border: 2px solid var(--background); border-radius: 50%; background: var(--primary); box-shadow: 0 0 0 1px rgba(3,104,90,.8); }.career-entry:nth-child(even) .career-marker { background: var(--accent); box-shadow: 0 0 0 1px rgba(238,192,34,.8); }.career-detail h4 { margin: 0; font-size: clamp(1.15rem, 2vw, 1.65rem); letter-spacing: -.035em; }.career-role { margin: .45rem 0 0; color: var(--accent); font-size: .7rem; font-weight: 700; letter-spacing: .1em; line-height: 1.5; text-transform: uppercase; }.career-location { margin-top: .35rem; }.career-description { max-width: 62ch; margin: 1rem 0 0; color: var(--muted); font-size: .95rem; line-height: 1.65; }.career-label { align-self: start; border: 1px solid var(--border); padding: .45rem .55rem; color: var(--foreground); white-space: nowrap; }.creative-evolution { max-width: 62rem; border-top: 1px solid var(--border); padding-top: clamp(2.5rem, 5vw, 4rem); }.creative-evolution > p:not(.eyebrow) { max-width: 55ch; margin: 1.5rem 0 0; color: var(--muted); font-size: clamp(1rem, 1.5vw, 1.2rem); line-height: 1.65; }.evolution-focus { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 2rem; }.evolution-focus span { border: 1px solid var(--border); padding: .55rem .7rem; font-size: .65rem; letter-spacing: .07em; text-transform: uppercase; }
 @media (max-width: 760px) { .about-intro-grid { grid-template-columns: 1fr; gap: 3rem; }.career-timeline::before { left: .3rem; }.career-entry { grid-template-columns: 1rem minmax(0, 1fr); gap: 1rem; padding-bottom: 2.5rem; }.career-years { grid-column: 2; grid-row: 1; }.career-marker { grid-column: 1; grid-row: 1 / span 4; margin-top: .25rem; }.career-detail { grid-column: 2; grid-row: 2; }.career-label { grid-column: 2; grid-row: 3; justify-self: start; margin-top: 1rem; }.career-description { font-size: .94rem; }.creative-evolution { margin-top: 4rem; } }
